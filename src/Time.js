@@ -7,7 +7,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
 function Time() {
-    const [time, settime] = React.useState(dayjs('2014-08-18T21:11:54'));
+    const [time, settime] = React.useState(dayjs(''));
 
     const handleChange = (newtime) => {
         settime(newtime);
