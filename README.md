@@ -1,9 +1,9 @@
 # Getting Started with traffic weather app
 
-###WebView:
+### WebView:
 ![image](https://user-images.githubusercontent.com/92838415/219385578-210f9b8e-b501-4dd1-bf97-aad322eb22e8.png)
 
-###MobileView:
+### MobileView:
 ![image](https://user-images.githubusercontent.com/92838415/219385738-9110e760-f288-4ca3-be50-992aeef9fdf7.png)
 
 ## 1. clone the repo
