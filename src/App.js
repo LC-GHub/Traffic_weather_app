@@ -23,26 +23,26 @@ function App(props) {
   return (
 
 
-    <div className="grid gap-4 w-screen h-screen grid-cols-12 grid-rows-7 ">
+    <div className="grid gap-4 w-screen h-screen grid-cols-12 grid-rows-7 bg-gray-50">
 
-        <div className="col-span-12 row-start-1 row-span-1 flex justify-center items-center p-4 font-semibold text-2xl">
-          <img src="https://www.aretese.com/images/govtech-animated-logo.gif" className="w-30 h-12"></img>
+        <div className="col-span-12 row-start-1 row-span-1 flex justify-center items-center p-2 font-semibold text-2xl bg-white">
+          <img src="https://www.aretese.com/images/govtech-animated-logo.gif" className="h-12"></img>
           Traffic and Weather App
         </div>
       
-        <div className="col-span-4 row-start-2 row-span-1 flex justify-center items-center p-2 rounded-lg shadow-sm">
+        <div className="lg:col-span-4 row-start-2 row-span-1 flex justify-center items-center p-2 rounded-lg shadow-sm col-span-6 bg-white">
         <Date date = {date} setdate = {setdate}/>
         </div>
 
 
 
-        <div className="col-span-4 row-start-2 row-span-1 flex justify-center items-center p-2 rounded-lg shadow-sm">
+        <div className="lg:col-span-4 row-start-2 row-span-1 flex justify-center items-center p-2 rounded-lg shadow-sm col-span-6 bg-white">
         <Time time = {time} settime = {settime}/>
         </div>
 
 
 
-        <div className="col-span-8 row-start-3 row-span-3 flex flex-col justify-center  rounded-lg shadow-sm p-2">
+        <div className="lg:col-span-8 row-start-3 row-span-3 flex flex-col justify-center rounded-lg shadow-sm p-2 col-span-12 bg-white">
           <div className="w-full h-full flex flex-col items-center">
             <Typography sx={{ mt: 0, mb: 2 }} variant="h6" component="div">
                 Select location of traffic camera
@@ -56,11 +56,11 @@ function App(props) {
         </div>
 
 
-        <div className="col-span-4 row-start-3 row-span-3 flex items-center justify-left rounded-lg shadow-sm p-2">
+        <div className="lg:col-span-4 lg:row-start-3 lg:row-span-3 flex items-center justify-center rounded-lg shadow-sm p-2 row-start-6 col-span-12 row-span-1 bg-white">
           <Weather weather = {weather} setweather = {setweather} date = {date} setdate = {setdate} time = {time} settime = {settime}/>
         </div>
 
-        <div className="col-span-8 row-start-6 row-span-2 flex items-center justify-center rounded-lg shadow-sm p-2">
+        <div className="lg:col-span-8 lg:row-start-6 row-span-2 flex items-center justify-center rounded-lg shadow-sm p-2 row-start-7 col-span-12 bg-white">
           <Screenshot imgURL = {imgURL} setimgURL = {setimgURL}/>
         </div>
         
