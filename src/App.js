@@ -4,14 +4,8 @@ import Time from './Time'
 import Weather from "./Weather";
 import Screenshot from "./Screenshot";
 import Locationlist from "./Locationlist";
-import Spinner from "./Spinner";
 import dayjs from 'dayjs';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-import List from '@mui/material/List';
-import ListItemText from '@mui/material/ListItemText';
-import { Grid, ListItem, ListItemButton } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 function App(props) {
