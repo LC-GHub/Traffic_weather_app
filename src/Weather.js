@@ -7,7 +7,7 @@ function Weather(props) {
     console.log(dateFormatted)
   return (
     <div>
-        <div>Weather data: {props.weather}</div>
+        <div>Weather is: {props.weather}</div>
         <div>on date: {dateFormatted == 'NaN-NaN-NaN'? '' : dateFormatted}</div>
         <div>at time: {isNaN(hourFormatted) ? '' : hourFormatted}:{isNaN(minFormatted) ? '' : minFormatted}</div>
     </div>

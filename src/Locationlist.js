@@ -3,8 +3,12 @@ import React, {useState, useEffect} from 'react'
 import ListItemText from '@mui/material/ListItemText';
 import {Grid, List, ListItem, ListItemButton } from '@mui/material';
 import axios from 'axios';
+import { CircularProgress } from '@mui/material'
+
+
 function Locationlist(props) {
   const [locations, setLocations] = useState([]);
+  const [IsLoading, setIsLoading] = React.useState(false);
   const dateFormatted = `${props.date.$y}-${(props.date.$M < 10 ? '0' : '') + props.date.$M}-${(props.date.$D < 10 ? '0' : '') + props.date.$D}`;
   const hourFormatted = `${(props.time.$H < 10 ? '0' : '') + props.time.$H}`
   const minFormatted = `${(props.time.$m < 10 ? '0' : '') + props.time.$m}`
@@ -14,8 +18,13 @@ function Locationlist(props) {
   console.log(minFormatted)
   console.log(secFormatted)
 
+
+
   useEffect(() => {
+
     const fetchCameraData = async () => {
+      setIsLoading(true)
+      console.log(IsLoading)
       const Cameradata = await axios.get(`https://api.data.gov.sg/v1/transport/traffic-images?date_time=${dateFormatted}T${hourFormatted}%3A${minFormatted}%3A${secFormatted}%2B08%3A00`);
       // console.log(Cameradata.data.items[0].cameras);
 
@@ -31,15 +40,20 @@ function Locationlist(props) {
         element.road = CameradataAndRoadName.data.GeocodeInfo[0].ROAD != 'undefined' ? CameradataAndRoadName.data.GeocodeInfo[0].ROAD :element.camera_id;
         // console.log(CameradataAndRoadName.data.GeocodeInfo[0])
       }
-      
       setLocations(Cameradata.data.items[0].cameras);
+      setIsLoading(false)
+      console.log(IsLoading)
+      
     }
+
     if(isNaN(props.date.$D) || isNaN(props.date.$M) || isNaN(props.date.$y) ||isNaN(props.time.$H) || isNaN(props.time.$m)){
       console.log("no fetched")
       return;
     }else{
+
       console.log("fetching")
       fetchCameraData();
+      
     }
 
     
@@ -104,8 +118,10 @@ function Locationlist(props) {
     }
 
   return (
-    <Grid item xs={12} sx = {{border: 1}}>
-    <List sx={{ overflow: 'auto', maxHeight: '150px' }}>
+    <div>
+    {IsLoading ? (
+      <CircularProgress />
+    ) : <List sx={{ overflow: 'auto', maxHeight: '250px' }} className = "border-2">
     {locations.map((item => {
     return (<ListItem button key = {item.camera_id} onClick={() => handleClick(item.camera_id)}>
         <ListItemButton>
@@ -115,8 +131,9 @@ function Locationlist(props) {
     }))
 
     }
-    </List>
-  </Grid>
+    </List>}
+
+  </div>
 
     
     // {/* <p>
