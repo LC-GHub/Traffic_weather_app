@@ -6,17 +6,18 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
-function Time() {
-    const [time, settime] = React.useState(dayjs(''));
+function Time(props) {
+    
 
     const handleChange = (newtime) => {
-        settime(newtime);
+
+        props.settime(newtime);
       };
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
         <TimePicker
           label="Time"
-          value={time}
+          value={props.time}
           onChange={handleChange}
           renderInput={(params) => <TextField {...params} />}
         />

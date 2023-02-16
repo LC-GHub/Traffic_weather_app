@@ -9,6 +9,9 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 function Date(props) {
 
     const handleChange = (newdate) => {
+
+        newdate.$M = newdate.$M + 1
+
         props.setdate(newdate);
       };
   return (
