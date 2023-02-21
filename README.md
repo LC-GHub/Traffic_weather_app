@@ -1,5 +1,9 @@
 # Getting Started with traffic weather app
 
+*Please change this line in Locationlist.js to a valid OneMap API key
+`const OneMapAPIKey = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjg0NzksInVzZXJfaWQiOjg0NzksImVtYWlsIjoiY2hld2NoeW91a2VhdGxpb25lbDE3MTJAZ21haWwuY29tIiwiZm9yZXZlciI6ZmFsc2UsImlzcyI6Imh0dHA6XC9cL29tMi5kZmUub25lbWFwLnNnXC9hcGlcL3YyXC91c2VyXC9zZXNzaW9uIiwiaWF0IjoxNjc2OTU5ODkzLCJleHAiOjE2NzczOTE4OTMsIm5iZiI6MTY3Njk1OTg5MywianRpIjoiNDVjNGYwNzNlNWZmMWFhZDA3ZmJkODQ4MjI3ZGU2MWIifQ.nI-GWaFvMo_2zdcISHnljLOFHG8CeH0x3NHXpb2AAaY`
+```
+
 By: Chew Chyou Keat Lionel
 ### WebView:
 ![image](https://user-images.githubusercontent.com/92838415/219385578-210f9b8e-b501-4dd1-bf97-aad322eb22e8.png)
