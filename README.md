@@ -1,5 +1,6 @@
 # Getting Started with traffic weather app
 
+By: Chew Chyou Keat Lionel
 ### WebView:
 ![image](https://user-images.githubusercontent.com/92838415/219385578-210f9b8e-b501-4dd1-bf97-aad322eb22e8.png)
 
@@ -17,3 +18,5 @@ Navigate into the app file and run:
 ## 3. Run the app
 After all installation is completed run:
 ```npm start```
+
+
