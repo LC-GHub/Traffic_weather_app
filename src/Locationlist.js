@@ -21,17 +21,16 @@ function Locationlist(props) {
 
     const fetchCameraData = async () => {
       setIsLoading(true)
-      
       const Cameradata = await axios.get(`https://api.data.gov.sg/v1/transport/traffic-images?date_time=${dateFormatted}T${hourFormatted}%3A${minFormatted}%3A${secFormatted}%2B08%3A00`);
       
 
       for (const element of Cameradata.data.items[0].cameras){
         // fetch the reverse geocode address
-        let CameradataAndRoadName = await axios.get(`https://developers.onemap.sg/privateapi/commonsvc/revgeocode?location=${element.location.latitude},${element.location.longitude}&token=token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjg0NzksInVzZXJfaWQiOjg0NzksImVtYWlsIjoiY2hld2NoeW91a2VhdGxpb25lbDE3MTJAZ21haWwuY29tIiwiZm9yZXZlciI6ZmFsc2UsImlzcyI6Imh0dHA6XC9cL29tMi5kZmUub25lbWFwLnNnXC9hcGlcL3YyXC91c2VyXC9zZXNzaW9uIiwiaWF0IjoxNjc2OTU5ODkzLCJleHAiOjE2NzczOTE4OTMsIm5iZiI6MTY3Njk1OTg5MywianRpIjoiNDVjNGYwNzNlNWZmMWFhZDA3ZmJkODQ4MjI3ZGU2MWIifQ.nI-GWaFvMo_2zdcISHnljLOFHG8CeH0x3NHXpb2AAaY&buffer=10&addressType=all`)
+        let CameradataAndRoadName = await axios.get(`https://developers.onemap.sg/privateapi/commonsvc/revgeocode?location=${element.location.latitude},${element.location.longitude}&token=${OneMapAPIKey}&buffer=10&addressType=all`)
         // if lat long in API is only 1dp
         if(!CameradataAndRoadName.data.GeocodeInfo[0]){
           
-          CameradataAndRoadName = await axios.get(`https://developers.onemap.sg/privateapi/commonsvc/revgeocode?location=${Math.round(element.location.latitude*10)/10},${Math.round(element.location.longitude*10)/10}&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjg0NzksInVzZXJfaWQiOjg0NzksImVtYWlsIjoiY2hld2NoeW91a2VhdGxpb25lbDE3MTJAZ21haWwuY29tIiwiZm9yZXZlciI6ZmFsc2UsImlzcyI6Imh0dHA6XC9cL29tMi5kZmUub25lbWFwLnNnXC9hcGlcL3YyXC91c2VyXC9zZXNzaW9uIiwiaWF0IjoxNjc2OTU5ODkzLCJleHAiOjE2NzczOTE4OTMsIm5iZiI6MTY3Njk1OTg5MywianRpIjoiNDVjNGYwNzNlNWZmMWFhZDA3ZmJkODQ4MjI3ZGU2MWIifQ.nI-GWaFvMo_2zdcISHnljLOFHG8CeH0x3NHXpb2AAaY&buffer=10&addressType=all`)
+          CameradataAndRoadName = await axios.get(`https://developers.onemap.sg/privateapi/commonsvc/revgeocode?location=${Math.round(element.location.latitude*10)/10},${Math.round(element.location.longitude*10)/10}&token=${OneMapAPIKey}&buffer=10&addressType=all`)
         }
         //assign into each camera's obj
         element.road = CameradataAndRoadName.data.GeocodeInfo[0].ROAD != 'undefined' ? CameradataAndRoadName.data.GeocodeInfo[0].ROAD :element.camera_id;
