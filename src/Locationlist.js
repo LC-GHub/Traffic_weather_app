@@ -13,7 +13,7 @@ function Locationlist(props) {
   const hourFormatted = `${(props.time.$H < 10 ? '0' : '') + props.time.$H}`
   const minFormatted = `${(props.time.$m < 10 ? '0' : '') + props.time.$m}`
   const secFormatted = `${(props.time.$s < 10 ? '0' : '') + props.time.$s}`
-
+  const OneMapAPIKey = `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjg0NzksInVzZXJfaWQiOjg0NzksImVtYWlsIjoiY2hld2NoeW91a2VhdGxpb25lbDE3MTJAZ21haWwuY29tIiwiZm9yZXZlciI6ZmFsc2UsImlzcyI6Imh0dHA6XC9cL29tMi5kZmUub25lbWFwLnNnXC9hcGlcL3YyXC91c2VyXC9zZXNzaW9uIiwiaWF0IjoxNjc2OTU5ODkzLCJleHAiOjE2NzczOTE4OTMsIm5iZiI6MTY3Njk1OTg5MywianRpIjoiNDVjNGYwNzNlNWZmMWFhZDA3ZmJkODQ4MjI3ZGU2MWIifQ.nI-GWaFvMo_2zdcISHnljLOFHG8CeH0x3NHXpb2AAaY`
 
 
 
@@ -27,7 +27,7 @@ function Locationlist(props) {
 
       for (const element of Cameradata.data.items[0].cameras){
         // fetch the reverse geocode address
-        let CameradataAndRoadName = await axios.get(`https://developers.onemap.sg/privateapi/commonsvc/revgeocode?location=${element.location.latitude},${element.location.longitude}&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjg0NzksInVzZXJfaWQiOjg0NzksImVtYWlsIjoiY2hld2NoeW91a2VhdGxpb25lbDE3MTJAZ21haWwuY29tIiwiZm9yZXZlciI6ZmFsc2UsImlzcyI6Imh0dHA6XC9cL29tMi5kZmUub25lbWFwLnNnXC9hcGlcL3YyXC91c2VyXC9zZXNzaW9uIiwiaWF0IjoxNjc2OTU5ODkzLCJleHAiOjE2NzczOTE4OTMsIm5iZiI6MTY3Njk1OTg5MywianRpIjoiNDVjNGYwNzNlNWZmMWFhZDA3ZmJkODQ4MjI3ZGU2MWIifQ.nI-GWaFvMo_2zdcISHnljLOFHG8CeH0x3NHXpb2AAaY&buffer=10&addressType=all`)
+        let CameradataAndRoadName = await axios.get(`https://developers.onemap.sg/privateapi/commonsvc/revgeocode?location=${element.location.latitude},${element.location.longitude}&token=token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjg0NzksInVzZXJfaWQiOjg0NzksImVtYWlsIjoiY2hld2NoeW91a2VhdGxpb25lbDE3MTJAZ21haWwuY29tIiwiZm9yZXZlciI6ZmFsc2UsImlzcyI6Imh0dHA6XC9cL29tMi5kZmUub25lbWFwLnNnXC9hcGlcL3YyXC91c2VyXC9zZXNzaW9uIiwiaWF0IjoxNjc2OTU5ODkzLCJleHAiOjE2NzczOTE4OTMsIm5iZiI6MTY3Njk1OTg5MywianRpIjoiNDVjNGYwNzNlNWZmMWFhZDA3ZmJkODQ4MjI3ZGU2MWIifQ.nI-GWaFvMo_2zdcISHnljLOFHG8CeH0x3NHXpb2AAaY&buffer=10&addressType=all`)
         // if lat long in API is only 1dp
         if(!CameradataAndRoadName.data.GeocodeInfo[0]){
           
